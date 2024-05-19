@@ -1,0 +1,23 @@
+### Compte Rendu : Projet Final pour Outils de Traitement de Corpus
+
+#### 1. Création du Dataset
+
+Utilisation du code `create_datasets.ipynb` sur Notebook pour transformer un fichier CSV de données d'Amazon-QA en un dataset compatible avec la bibliothèque `datasets`. Le script utilisé est le suivant :
+
+```python
+import pandas as pd
+df = pd.read_csv('Amazon-QA.csv')
+from datasets import Dataset
+dataset = Dataset.from_pandas(df)
+output_directory = "/home/Files/"
+dataset.save_to_disk(output_directory)
+```
+
+En résultat, on obtient trois fichiers :
+- `state.json`
+- `dataset_info.json`
+- `data-00000-of-00001.arrow`
+
+#### 2. Extraction et Transformation
+Deux scripts Python pour extraire et transformer les données :- `extract_information.py` utilise BeautifulSoup pour extraire les informations d'un site web.
+- `transform_to_table.py` transforme les données extraites en un format tabulaire.
